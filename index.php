@@ -23,14 +23,6 @@
         $ARR[$i] = $i + 1;
     }
     
-    
-    
-    
-    
-
-
-
-
 
     
     // sets the players score
@@ -83,12 +75,6 @@
 
         $score = 0;
     }
-
-
-
-
-
-
 
 
 

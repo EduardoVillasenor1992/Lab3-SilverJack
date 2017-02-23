@@ -1,0 +1,32 @@
+[1mdiff --git a/index.php b/index.php[m
+[1mindex cb38745..b9dbcb6 100644[m
+[1m--- a/index.php[m
+[1m+++ b/index.php[m
+[36m@@ -23,14 +23,6 @@[m
+         $ARR[$i] = $i + 1;[m
+     }[m
+     [m
+[31m-    [m
+[31m-    [m
+[31m-    [m
+[31m-    [m
+[31m-[m
+[31m-[m
+[31m-[m
+[31m-[m
+ [m
+     [m
+     // sets the players score[m
+[36m@@ -87,12 +79,6 @@[m
+ [m
+ [m
+ [m
+[31m-[m
+[31m-[m
+[31m-[m
+[31m-[m
+[31m-[m
+[31m-[m
+ // plays game[m
+     function playGame()    [m
+     {[m
