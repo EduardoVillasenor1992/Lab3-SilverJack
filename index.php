@@ -116,7 +116,7 @@
             
         }
         
-        
+        //outputs cards as long as its below 39
         do
         {
             $t = $ARR[0];
