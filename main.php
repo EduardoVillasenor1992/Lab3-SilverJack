@@ -1,20 +1,13 @@
 <?php
 
     // deck for the memeory game
-    $ARR = array();
-    // array is for player scores
-    
-    
-    $player1 = 0;
-    $player2 = 0;
-    $player3 = 0;
-    $player4 = 0;
-    $highScore = 0;
-    
+    $ARR = array();     
+    $dealer = 0;
+    $player = 0;
     $score = 0;
     
     
-
+    //tells the user who won
     
     
     // for loop creates an array with values from 1 through 52
@@ -23,64 +16,64 @@
         $ARR[$i] = $i + 1;
     }
     
-    
-    
-    
-    
+    // sets the dealers score
+    function dealer()
+    {
+        global $dealer;
+        global $player;
+        global $score;
 
-
-
-
+        playGame();
+        $dealer = $score;
+        $score = 0;
+        
+    }
+    //checks the dealers cards compared to the player and outputs score
+    function checkDealerCards()
+    {
+        global $dealer;
+        global $player;
+        global $score;
+        echo $dealer;
+    }
+    
+    // checks players cards compared to the dealer and outputs score
+    function checkPlayerCards()
+    {
+        global $dealer;
+        global $player;
+        global $score;
+        if($player > $dealer)
+        {
+            echo "you win ";
+            
+        }
+        elseif($dealer > $player)
+        {
+            echo "you lose ";
+            
+        }
+        else
+        {
+            echo "DRAW ";
+            
+        }
+        
+        echo $player;
+        
+    }
 
     
     // sets the players score
-    function player1()
+    function player()
     {
-        global $player1;
+        global $dealer;
+        global $player;
         global $score;
 
         playGame();
         
-        $player1 = $score;
-        echo $player1;
-
-        $score = 0;
-        
-    }
-    function player2()
-    {
-        global $player2;
-        global $score;
-
-        playGame();
-        
-        $player2 = $score;
-        echo $player2;
-
-        $score = 0;
-    }
-    function player3()
-    {
-        global $player3;
-        global $score;
-
-        playGame();
-        
-        $player3 = $score;
-        echo $player3;
-
-        $score = 0;
-    }
-    function player4()
-    {
-        global $player4;
-        global $score;
-
-        playGame();
-        
-        $player4 = $score;
-        echo $player4;
-
+        $player = $score;
         $score = 0;
     }
 
@@ -88,17 +81,11 @@
 
 
 
-
-
-
-
-
-// plays game
     function playGame()    
     {
         global $ARR;
         
-        
+        global $dealer;
         global $player;
         global $score;
         
@@ -109,7 +96,7 @@
         for($i = 0; $i < count($ARR); $i++)
         {
             
-            $random = rand(0,10);
+            $random = rand(0,30);
             $temp = $ARR[$i];
             $ARR[$i] = $ARR[$random];
             $ARR[$random] = $temp;
@@ -117,70 +104,50 @@
         }
         
         
-        do
+        // displays two cards and then removes 
+        
+        for($j = 0; $j < 3; $j++)
         {
-            $t = $ARR[0];
+            
+            $t = $ARR[$j];
             echo "<img src = 'img/cards1/$t.png' />";
             
             if($t >= 1 && $t <= 13)
             {
                 $score = $score + $t;
+                
             }
             
             
             elseif($t >=14 && $t <= 26)
             {
                 $score = $score + $t - 13;
+                
             }
             
             elseif($t >= 27 && $t <=39)
             {
                 $score = ($score + $t - 26);
+               
             }
             
             else
             {
                 $score = ($score + $t - 39);
             }
-            unset($ARR[0]);
-            $ARR = array_values($ARR);
             
-        }while($score < 39);
+        }
         
-    
+        unset($ARR[0]);
+        unset($ARR[1]);
+        $ARR = array_values($ARR);
+        
     }
+
+    
+  
+
+    
     
     
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title> </title>
-    </head>
-    <body>
-        
-        <?=player1()?>
-        <br/>
-        <?=player2()?>
-        <br/>
-        <?=player3()?>
-        <br/>
-        <?=player4()?>
-        
-        
-
-    </body>
-</html>
