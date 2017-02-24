@@ -105,6 +105,7 @@
     function displayWinner(){
         $winnerCount = 0;
         $scoresArray = array();
+        $winningPoints = 0;
         global $player1, $player2, $player3, $player4;
         
         //Loops player variables to store into array with key and value
@@ -112,9 +113,10 @@
             $scoresArray["player" . $i] = ${"player". $i};
         }
         
-        //Removes scores higher than 42 from array
+        //Removes scores higher than 42 from array and add points
         foreach ($scoresArray as $key => $value){
             if($value > 42){
+                $winningPoints += $scoresArray[$key];
                 unset($scoresArray[$key]);
             }
         }
@@ -131,6 +133,13 @@
             if($winnerCount > 1){
                 echo "<p><strong>Tie - No Winners</strong></p>";
             }else{
+                foreach($scoresArray as $key => $value){
+                    //Adds rest of points
+                    if($value != max($scoresArray)){
+                        $winningPoints += $scoresArray[$key];
+                    }
+                }
+                echo "<p><strong> Points: " . $winningPoints . "</strong></p>";
                 echo "<div class='winnerText'><p><strong>" . ucfirst(array_search(max($scoresArray), $scoresArray)) . " is the winner!</strong></p></div>";
             }
         }
