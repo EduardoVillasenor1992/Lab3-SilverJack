@@ -14,14 +14,41 @@
     for($i = 0; $i < 52; $i++ ){
         $deckArray[$i] = $i + 1;
     }
+    
+    //Randomizes players 
+    $playImages = array("53","54","55","56");
+    shuffle($playImages);
+
+    //Assigns the proper names to player pictures in $randomized
+    $names = array("","","","");
+        for($x = 0; $x < 4; $x++){
+            if($playImages[$x] == "53")
+                {$names[$x] = "Doge";}
+            if($playImages[$x] == "54")
+                {$names[$x] = "Ed";}
+            if($playImages[$x] == "55")
+                {$names[$x] = "Tomas";}
+            if($playImages[$x] == "56")
+                {$names[$x] = "Kara";}
+        }
+        
+        echo "shuffles array: ";
+        print_r($playImages);
+        echo "names array: ";
+        print_r($names);
+    
     function player1(){
         global $player1;
         global $score;
-
-        playGame();
-        
-        $player1 = $score;
+        global $playImages;
+        global $names;
+        $r = $playImages[0];
+        $n = $names[0];
+        echo "<figure><img src ='img/$r.jpg' class = 'images' /><figcaption class='fonts'><strong>".$n."</strong></figcaption></figure>";
         echo "<br />";
+        
+        playGame();
+        $player1 = $score;
         echo "<strong>Score: <span class= 'scores'>".$player1."</strong></span>";
         $score = 0;
     }
@@ -29,11 +56,16 @@
     function player2(){
         global $player2;
         global $score;
-
-        playGame();
-        
-        $player2 = $score;
+        global $playImages;
+        global $names;
+        $r = $playImages[1];
+        $n = $names[1];
+        echo "<figure><img src ='img/$r.jpg' class = 'images' /><figcaption class='fonts'><strong>".$n."</strong></figcaption></figure>";
         echo "<br />";
+        
+        playGame();
+        $player2 = $score;
+        
         echo "<strong>Score: <span class= 'scores'>".$player2."</strong></span>";
         $score = 0;
     }
@@ -41,11 +73,16 @@
     function player3(){
         global $player3;
         global $score;
-
+        global $playImages;
+        global $names;
+        $r = $playImages[2];
+        $n = $names[2];
+        echo "<figure><img src ='img/$r.jpg' class = 'images' /><figcaption class='fonts'><strong>".$n."</strong></figcaption></figure>";
+        echo "<br />";
+        
         playGame();
         
         $player3 = $score;
-        echo "<br />";
         echo "<strong>Score: <span class= 'scores'>".$player3."</strong></span>";
         $score = 0;
     }
@@ -53,11 +90,17 @@
     {
         global $player4;
         global $score;
-
-        playGame();
-        
-        $player4 = $score;
+        global $playImages;
+        global $names;
+        $r = $playImages[3];
+        $n = $names[3];
+        echo "<figure><img src ='img/$r.jpg' class = 'images' /><figcaption class='fonts'><strong>".$n."</strong></figcaption></figure>";
         echo "<br />";
+        
+        playGame();
+
+        $player4 = $score;
+
         echo "<strong>Score: <span class= 'scores'>".$player4."</strong></span>";
         $score = 0;
     }
@@ -67,7 +110,6 @@
         global $deckArray;
         global $player;
         global $score;
-        
         $random = 0;
         $temp = 0;
         
@@ -107,7 +149,7 @@
         $winnerCount = 0;
         $scoresArray = array();
         $winningPoints = 0;
-        global $player1, $player2, $player3, $player4, $nameArray;
+        global $player1, $player2, $player3, $player4, $nameArray, $playImages,$names;
         
         //Loops player variables to store into array with key and value
         for($i = 1; $i < 5; $i++){
@@ -145,6 +187,8 @@
             }
         }
     }
+    
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -157,32 +201,15 @@
     <body>
         <h1 class= "fonts">Silverjack</h1>
         <h3 class= "fonts">a Game of Luck</h3>
-        <figure>
-            <img src="img/pic.jpg" class = "images" alt="picture of dog" />
-            <figcaption class="fonts"><strong>Doge</strong></figcaption>
-            <?=player1()?>
-        </figure>
-        <br/>
-        <figure>
-            <img src="img/edv.jpg" class = "images" alt="picture of human" />
-            <figcaption class="fonts"><strong>Ed</strong></figcaption>
-            <?=player2()?>
-        </figure>
         
+        <br />
+        <?=player1()?>
         <br/>
-        <figure>
-            <img src="img/toh.jpg" class = "images" alt="picture of human" />
-            <figcaption class="fonts"><strong>Tomas</strong></figcaption>
-            <?=player3()?>
-        </figure>
-        
+        <?=player2()?>
         <br/>
-        <figure>
-            <img src="img/kas.jpg" class = "images" alt="picture of human female" />
-            <figcaption class="fonts"><strong>Kara</strong></figcaption>
-            <?=player4()?>
-        </figure>
-        
+        <?=player3()?>
+        <br/>
+        <?=player4()?>
         <br/>
         <?=displayWinner()?>
         <form>
