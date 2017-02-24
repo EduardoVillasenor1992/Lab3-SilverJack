@@ -8,6 +8,7 @@
     $player4 = 0;
     $highScore = 0;
     $score = 0;
+    $nameArray = ["Doge", "Ed", "Tomas", "Kara"];
     
     // for loop creates an array with values from 1 through 52
     for($i = 0; $i < 52; $i++ ){
@@ -106,11 +107,11 @@
         $winnerCount = 0;
         $scoresArray = array();
         $winningPoints = 0;
-        global $player1, $player2, $player3, $player4;
+        global $player1, $player2, $player3, $player4, $nameArray;
         
         //Loops player variables to store into array with key and value
         for($i = 1; $i < 5; $i++){
-            $scoresArray["player" . $i] = ${"player". $i};
+            $scoresArray[$nameArray[$i - 1]] = ${"player". $i};
         }
         
         //Removes scores higher than 42 from array and add points
