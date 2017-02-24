@@ -5,9 +5,15 @@ body{
     background: linear-gradient(to right, gray , purple);
 }
 
-/*class to style headers, and figcaption tags (players names)*/
+/*class to style figcaption tags (players names)*/
 .fonts {
    text-shadow: 2px 2px 8px white;
+}
+
+/*class to style the headers*/
+.headers {
+    text-shadow: 2px 2px 8px white;
+    text-align: center;
 }
 
 /*give all player images this class*/
@@ -16,6 +22,7 @@ body{
     border: 2px solid white;
 }
 
-.scores {
-    
+/*class for the heart image decoration*/
+#heart {
+    height:100px;
 }

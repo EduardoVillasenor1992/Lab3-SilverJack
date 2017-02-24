@@ -8,7 +8,6 @@
     $player4 = 0;
     $highScore = 0;
     $score = 0;
-    $nameArray = ["Doge", "Ed", "Tomas", "Kara"];
     
     // for loop creates an array with values from 1 through 52
     for($i = 0; $i < 52; $i++ ){
@@ -32,10 +31,6 @@
                 {$names[$x] = "Kara";}
         }
         
-        echo "shuffles array: ";
-        print_r($playImages);
-        echo "names array: ";
-        print_r($names);
     
     function player1(){
         global $player1;
@@ -149,11 +144,11 @@
         $winnerCount = 0;
         $scoresArray = array();
         $winningPoints = 0;
-        global $player1, $player2, $player3, $player4, $nameArray, $playImages,$names;
+        global $player1, $player2, $player3, $player4, $playImages,$names;
         
         //Loops player variables to store into array with key and value
         for($i = 1; $i < 5; $i++){
-            $scoresArray[$nameArray[$i - 1]] = ${"player". $i};
+            $scoresArray[$names[$i - 1]] = ${"player". $i};
         }
         
         //Removes scores higher than 42 from array and add points
@@ -199,9 +194,12 @@
         </style>
     </head>
     <body>
-        <h1 class= "fonts">Silverjack</h1>
-        <h3 class= "fonts">a Game of Luck</h3>
-        
+        <h1 class = "headers">Silverjack</h1>
+        <h3 class = "headers">a Game of Luck</h3>
+        <img src="img/heart.png" id = "heart" alt = "heart" />
+        <img src="img/heart.png" id = "heart" alt = "heart" />
+        <img src="img/heart.png" id = "heart" alt = "heart" />
+        <img src="img/heart.png" id = "heart" alt = "heart" />
         <br />
         <?=player1()?>
         <br/>
