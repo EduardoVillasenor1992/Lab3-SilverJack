@@ -1,17 +1,17 @@
-h1{
-   background-color: #d1d1e0; 
-   color: black;
-   text-shadow: 2px 2px 8px purple;
-   font-family: monospace;
+body{
+    font-family: arial, verdana;
+    text-align: center;
+    color: black;
+    background: linear-gradient(to right, gray , purple);
+}
+
+/*class to style headers, and figcaption tags (players names)*/
+.fonts {
+   text-shadow: 2px 2px 8px white;
 }
 
 /*give all player images this class*/
 .images{
-    height:250px;
-    width:250px;
-}
-/*player names class here */
-.names{
-    color:black;
-    font-family: monospace;
+    border-radius: 25px;
+    border: 2px solid white;
 }

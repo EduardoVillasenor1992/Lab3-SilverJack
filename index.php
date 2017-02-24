@@ -20,7 +20,8 @@
         playGame();
         
         $player1 = $score;
-        echo $player1;
+        echo "<br />";
+        echo "<strong>Score: <span class= 'scores'>".$player1."</strong></span>";
         $score = 0;
     }
     
@@ -31,7 +32,8 @@
         playGame();
         
         $player2 = $score;
-        echo $player2;
+        echo "<br />";
+        echo "<strong>Score: <span class= 'scores'>".$player2."</strong></span>";
         $score = 0;
     }
     
@@ -42,7 +44,8 @@
         playGame();
         
         $player3 = $score;
-        echo $player3;
+        echo "<br />";
+        echo "<strong>Score: <span class= 'scores'>".$player3."</strong></span>";
         $score = 0;
     }
     function player4()
@@ -53,7 +56,8 @@
         playGame();
         
         $player4 = $score;
-        echo $player4;
+        echo "<br />";
+        echo "<strong>Score: <span class= 'scores'>".$player4."</strong></span>";
         $score = 0;
     }
     
@@ -136,15 +140,39 @@
 <html>
     <head>
         <title> </title>
+        <style>
+            @import url("css/styles.css");
+        </style>
     </head>
     <body>
-        <?=player1()?>
+        <h1 class= "fonts">Silverjack</h1>
+        <h3 class= "fonts">a Game of Luck</h3>
+        <figure>
+            <img src="img/pic.jpg" class = "images" alt="picture of dog" />
+            <figcaption class="fonts"><strong>Doge</strong></figcaption>
+            <?=player1()?>
+        </figure>
         <br/>
-        <?=player2()?>
+        <figure>
+            <img src="img/edv.jpg" class = "images" alt="picture of human" />
+            <figcaption class="fonts"><strong>Ed</strong></figcaption>
+            <?=player2()?>
+        </figure>
+        
         <br/>
-        <?=player3()?>
+        <figure>
+            <img src="img/toh.jpg" class = "images" alt="picture of human" />
+            <figcaption class="fonts"><strong>Tomas</strong></figcaption>
+            <?=player3()?>
+        </figure>
+        
         <br/>
-        <?=player4()?>
+        <figure>
+            <img src="img/kas.jpg" class = "images" alt="picture of human female" />
+            <figcaption class="fonts"><strong>Kara</strong></figcaption>
+            <?=player4()?>
+        </figure>
+        
         <br/>
         <?=displayWinner()?>
         <form>
