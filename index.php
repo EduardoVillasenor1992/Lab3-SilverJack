@@ -23,12 +23,12 @@
     $names = array("","","","");
         for($x = 0; $x < 4; $x++){
             if($playImages[$x] == "53")
+                {$names[$x] = "Ed";}
+            if($playImages[$x] == "56")
+                {$names[$x] = "Tomas";}
+            if($playImages[$x] == "55")
                 {$names[$x] = "Doge";}
             if($playImages[$x] == "54")
-                {$names[$x] = "Ed";}
-            if($playImages[$x] == "55")
-                {$names[$x] = "Tomas";}
-            if($playImages[$x] == "56")
                 {$names[$x] = "Kara";}
         }
         
